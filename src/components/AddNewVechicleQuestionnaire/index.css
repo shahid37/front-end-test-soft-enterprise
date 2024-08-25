@@ -113,6 +113,12 @@
   width: 140px !important; /* Set a width to see the effect of text alignment */
 }
 
+
+.left-align-button-text {
+  display: block;
+  width: 100%;
+}
+
 .input-style{
   margin-left: 50px;
   width: 200px !important;

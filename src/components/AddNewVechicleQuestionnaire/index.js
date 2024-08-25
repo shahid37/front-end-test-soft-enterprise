@@ -78,31 +78,28 @@ export default function AddNewVechicleQuestionnaire() {
     setIsModalOpen(false);
   };
 
-   // Recursive function to render keys and values
-   const renderObject = (obj, indent = 0) => {
+  // Recursive function to render keys and values
+  const renderObject = (obj, indent = 0) => {
     return Object.entries(obj).map(([key, value]) => {
-      if (key === 'count') {
+      if (key === "count") {
         return null; // Skip rendering the 'count' key
       }
 
-      const isNestedObject = typeof value === 'object' && value !== null;
+      const isNestedObject = typeof value === "object" && value !== null;
       const isDate = value instanceof Date || !isNaN(Date.parse(value));
 
       return (
         <div key={key} style={{ marginLeft: indent * 20 }}>
-          <strong>{key}:</strong>{' '}
-          {isNestedObject && !isDate ? (
-            renderObject(value, indent + 1)
-          ) : isDate ? (
-            new Date(value).toISOString().split('T')[0] // Format date as YYYY-MM-DD
-          ) : (
-            value
-          )}
+          <strong>{key}:</strong>{" "}
+          {isNestedObject && !isDate
+            ? renderObject(value, indent + 1)
+            : isDate
+            ? new Date(value).toISOString().split("T")[0] // Format date as YYYY-MM-DD
+            : value}
         </div>
       );
     });
   };
-
 
   return (
     <Card
@@ -203,9 +200,7 @@ export default function AddNewVechicleQuestionnaire() {
         onOk={handleOk}
         onCancel={handleCancel}
       >
-      <div>
-      {renderObject(vehicleData)}
-    </div>
+        <div>{renderObject(vehicleData)}</div>
       </Modal>
     </Card>
   );
@@ -293,20 +288,30 @@ const RentalPrice = ({ dispatch }) => {
       return result;
     });
   };
+
   return (
-    <>
+    <Row gutter={[16, 16]} justify="center" align="middle" style={{ width:"100%"}}>
       {["$46", "$156", "$284", "$834"].map((item) => {
         return (
-          <Col className="gutter-row" span={6}>
+          <Col
+            key={item}
+            xs={24}
+            sm={12}
+            md={8}
+            lg={6}
+            xl={6}
+            className="gutter-row"
+          >
             <ConfigProvider theme={{ token: { controlHeight: 45 } }}>
               <Button
                 className="left-align-button"
                 type={selected.includes(item) ? "primary" : "default"}
                 onClick={() => handleButtonClick(item)}
+                block
               >
                 <Typography.Text
                   level={4}
-                  className="left-align-button"
+                  className="left-align-button-text"
                   style={{
                     color: selected.includes(item) ? "white" : "black",
                     fontWeight: selected.includes(item) ? "bold" : 500,
@@ -319,7 +324,7 @@ const RentalPrice = ({ dispatch }) => {
           </Col>
         );
       })}
-    </>
+    </Row>
   );
 };
 
