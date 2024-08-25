@@ -1,0 +1,180 @@
+
+
+
+.stepper-container {
+  display: flex;
+  justify-content: center;
+}
+
+.stepper {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+}
+
+.stepper::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50px; /* Start after the first circle */
+  right: 50px; /* End before the last circle */
+  height: 2px;
+  background-color: #e0e0e0;
+  z-index: -1;
+  transform: translateY(-50%);
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  flex: 1;
+  z-index: 1;
+}
+
+.step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 50%; /* Start the line after the current step circle */
+  width: 100%; /* Line covers the space until the next step */
+  height: 12px;
+  background-color: #ffffff;
+  transform: translateY(-50%);
+  z-index: -1;
+}
+
+.step.completed:not(:last-child)::after {
+  background-color: #26266b; /* Color the line if the step is completed */
+}
+
+.step.active:not(:last-child)::after {
+  background-color: #ffffff; /* Keep the line gray for the current step */
+}
+
+.circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #2d2d3e; /* Default text color for non-selected circles */
+  position: relative;
+  z-index: 2;
+  border: 1px solid #efefef; /* Add a border for not selected circles */
+}
+
+.step.active .circle,
+.step.completed .circle {
+  background-color: #26266b;
+  border: none; /* Remove the border for selected circles */
+  color: #ffffff; /* Text color for selected circles */
+}
+
+.step.active .step-title,
+.step.completed .step-title {
+  color: #26266b; /* Color the title for active and completed steps */
+}
+
+
+
+.step-title-completed {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #26266b;
+}
+.step-title {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #2d2d3e;
+}
+
+
+.back-btn{
+  text-decoration-color: #26266b !important;
+  color: #26266b !important;
+  width: 100px !important;
+  font-weight: 700 !important;
+}
+
+.left-align-button {
+  text-align: left !important;
+  width: 140px !important; /* Set a width to see the effect of text alignment */
+}
+
+.input-style{
+  margin-left: 50px;
+  width: 200px !important;
+}
+.text-area-input-style{
+  width: 100% !important;
+}
+
+.feature-div-style{
+  padding-left: 40px !important;
+  padding-right: 40px !important;
+}
+.additinal-notes-style{
+  padding-left: 40px !important;
+  padding-right: 40px !important;
+  padding-bottom: 40px !important;
+  padding-top: 30px;
+}
+
+
+/* vehicle demage component classes */
+
+.vehicle-damage-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.radio-group {
+  margin-bottom: 20px;
+}
+
+.vehicle-card {
+  width: 100%;
+  /* max-width: "100%"; */
+  /* padding: 20px; */
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 10;
+  border-radius: 8; 
+  background-color: white; /* Custom background color */
+}
+
+.car-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+  /* border: 1px solid #d9d9d9; Optional: Add a border around the image */
+  /* border-radius: 5px; Optional: Round the corners of the image */
+}
+
+.ant-radio-button-wrapper-checked {
+  background-color: #1890ff !important; /* Override background color */
+  color: #fff !important; /* Override text color */
+}
+
+.btn-wrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 60px;
+}

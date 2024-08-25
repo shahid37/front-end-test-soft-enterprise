@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { useState } from "react";
+import { Form, Layout, Select, theme } from "antd";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-function App() {
+import AddNewVechicle from "./pages/addNewVechicle";
+import SiderMenu from "./components/siderMenu";
+
+const { Content } = Layout;
+
+const App = () => {
+  const [collapsed, setCollapsed] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <Router>
+      <Layout>
+        <SiderMenu collapsed={collapsed} setCollapsed={setCollapsed} />
+        <Layout
+          style={{
+            marginLeft: "40px",
+            marginRight: 30,
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Content>
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <AddNewVechicle
+                    setCollapsed={setCollapsed}
+                    collapsed={collapsed}
+                  />
+                }
+              />
+              <Route path="/dashboard" element={<>Dashboard</>} />
+            </Routes>
+          </Content>
+        </Layout>
+      </Layout>
+    </Router>
   );
-}
-
+};
 export default App;

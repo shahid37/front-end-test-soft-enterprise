@@ -24,8 +24,25 @@
   color: white;
 }
 
+
+.app-icon-style{
+  border-bottom: "1px solid #c6cacd";
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .App-link {
   color: #61dafb;
+}
+
+.menu-header{
+  height: 20vmin;
+}
+
+.ant-layout-header{
+  padding: 0 !important;
 }
 
 @keyframes App-logo-spin {
