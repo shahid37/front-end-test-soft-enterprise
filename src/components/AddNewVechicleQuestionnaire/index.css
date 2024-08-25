@@ -24,7 +24,7 @@
   height: 2px;
   background-color: #e0e0e0;
   z-index: -1;
-  transform: translateY(-50%);
+  transform: translateY(-50%) !important;
 }
 
 .step {
@@ -40,7 +40,7 @@
 .step:not(:last-child)::after {
   content: '';
   position: absolute;
-  top: 20% !important;
+  top: 24% !important;
   left: 50% !important; /* Start the line after the current step circle */
   width: 100%; /* Line covers the space until the next step */
   height: 12px;

@@ -13,7 +13,7 @@ const App = () => {
 
   return (
     <Router>
-      <Layout>
+      <Layout style={{backgroundColor:'',height:"100vh"}}>
         <SiderMenu collapsed={collapsed} setCollapsed={setCollapsed} />
         <Layout
           style={{
