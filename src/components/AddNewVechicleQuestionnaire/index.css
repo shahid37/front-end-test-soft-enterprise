@@ -40,7 +40,7 @@
 .step:not(:last-child)::after {
   content: '';
   position: absolute;
-  top: 24% !important;
+  top: 30% !important;
   left: 50% !important; /* Start the line after the current step circle */
   width: 100%; /* Line covers the space until the next step */
   height: 12px;
